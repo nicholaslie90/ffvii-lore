@@ -192,6 +192,23 @@ function FFScene(key) {
         + `<g transform="translate(100,42)"><circle r="18" fill="none" stroke="#c45bff" stroke-width="2" opacity="0.8"/><path d="M-10 8 A12 12 0 1 1 10 8 L6 14 H10 M-6 14 H-10 L-10 8" fill="none" stroke="#c45bff" stroke-width="2" opacity="0.8"/></g>`
         + `<circle cx="100" cy="42" r="28" fill="#c45bff" opacity="0.1"/>`;
 
+    case "degradation":  // a figure cracking and flaking apart
+      return sky("#0e0c16", "#1a1226") + stars(5, "#b9a9d0")
+        + ground("#0b0a12", 80)
+        + `<path d="M58 88 Q56 64 70 56 Q84 64 82 88 Z" fill="#8e8896"/>`
+        + `<ellipse cx="70" cy="47" rx="9" ry="11" fill="#8e8896"/>`
+        + `<circle cx="70" cy="58" r="11" fill="#c45bff" opacity="0.10"/>`
+        + `<g stroke="#2a2336" stroke-width="1" opacity="0.85" fill="none"><path d="M70 40 L67 52 L72 60 L68 74"/><path d="M64 50 L72 54 M76 64 L70 70"/></g>`
+        + `<path d="M84 50 Q92 44 98 48 Q90 49 93 56 Q86 52 84 50 Z" fill="#d8d2e0" opacity="0.7"/>`
+        + `<g fill="#9e98a8">`
+        + `<path d="M86 58 l7 -3 l-2 6 Z" opacity="0.9"/>`
+        + `<path d="M96 52 l6 -2 l-2 5 Z" opacity="0.7"/>`
+        + `<path d="M104 61 l5 -2 l-1 4 Z" opacity="0.5"/>`
+        + `<path d="M92 71 l5 -2 l-1 4 Z" opacity="0.6"/>`
+        + `<path d="M112 55 l4 -1 l-1 3 Z" opacity="0.35"/>`
+        + `<path d="M120 64 l3 -1 l-1 3 Z" opacity="0.25"/>`
+        + `</g>`;
+
     case "reels":  // Gast's Reports — projector + a Cetra on screen
       return sky("#0a1410", "#0e1f1a")
         + ground("#0a1310", 80)
