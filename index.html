@@ -18,7 +18,7 @@
     </div>
     <div class="tabs" role="tablist" aria-label="Views">
       <button class="tab" id="tab-timeline" role="tab" aria-selected="true" aria-controls="view-timeline">Timeline</button>
-      <button class="tab" id="tab-relations" role="tab" aria-selected="false" aria-controls="view-relations">Relationships</button>
+      <button class="tab" id="tab-relations" role="tab" aria-selected="false" aria-controls="view-relations">Characters</button>
       <button class="tab" id="tab-compendium" role="tab" aria-selected="false" aria-controls="view-compendium">Compendium</button>
     </div>
     <button class="audio-btn" id="audio-btn" aria-pressed="false" title="Toggle ambient music">
@@ -36,10 +36,13 @@
       <header class="masthead">
         <div class="eyebrow">~5000 years · one planet · one stream of life</div>
         <h1>The story of the Planet, from the <em>Cetra</em> to the Stigma</h1>
-        <p>A chronological lorebook for the entire Final Fantasy VII Compilation — original, Crisis Core, Before Crisis, Advent Children, Dirge of Cerberus, and the Remake saga. Expand any incident for the deeper story and an illustration; spoilers stay sealed in the Shinra archive until you declassify them.</p>
+        <p>A chronological lorebook for the entire Final Fantasy VII Compilation — original, Crisis Core, Before Crisis, Advent Children, Dirge of Cerberus, Ever Crisis, and the Remake saga. Expand any incident for the deeper story and an illustration; spoilers stay sealed in the Shinra archive until you declassify them.</p>
         <div class="scroll-hint">↓ scroll the lifestream ↓</div>
       </header>
       <div class="wrap">
+        <div class="timeline-tools">
+          <button class="tl-toggle" id="expand-all" aria-pressed="false"><span class="tl-ic" aria-hidden="true">⌄</span> <span class="tl-lbl">Expand all</span></button>
+        </div>
         <div class="timeline" id="timeline">
           <div class="spine" aria-hidden="true"></div>
         </div>
@@ -49,21 +52,30 @@
     <!-- ============ RELATIONSHIPS ============ -->
     <section class="view" id="view-relations" role="tabpanel" aria-labelledby="tab-relations">
       <div class="rel-layout">
-        <div class="graph-pane">
-          <div class="search-wrap">
-            <input type="text" id="char-search" class="search-input" placeholder="Search characters…" autocomplete="off" aria-label="Search characters">
-            <div class="search-results" id="search-results" role="listbox"></div>
+        <div class="graph-pane mode-web">
+          <div class="pane-head">
+            <div class="mode-toggle" role="group" aria-label="Character view mode">
+              <button class="mode-btn active" data-mode="web" aria-selected="true">◌ Web</button>
+              <button class="mode-btn" data-mode="grid" aria-selected="false">▦ Grid</button>
+            </div>
+            <div class="search-wrap">
+              <input type="text" id="char-search" class="search-input" placeholder="Search characters…" autocomplete="off" aria-label="Search characters">
+              <div class="search-results" id="search-results" role="listbox"></div>
+            </div>
           </div>
-          <svg id="graph" role="img" aria-label="Interactive character relationship web. Select a character to open their dossier and connections."></svg>
-          <div class="legend" aria-hidden="true">
-            <b>Ties</b>
-            <div class="row"><span class="ic" style="color:var(--rose)">♥</span> love / bond</div>
-            <div class="row"><span class="ic" style="color:var(--gold)">⛓</span> family</div>
-            <div class="row"><span class="ic" style="color:var(--mako)">➜</span> mentor</div>
-            <div class="row"><span class="ic" style="color:var(--ink-soft)">◆</span> ally</div>
-            <div class="row"><span class="ic" style="color:var(--jenova)">⚔</span> enmity</div>
+          <div class="pane-body">
+            <svg id="graph" role="img" aria-label="Interactive character relationship web. Select a character to open their dossier and connections."></svg>
+            <div class="legend" aria-hidden="true">
+              <b>Ties</b>
+              <div class="row"><span class="ic" style="color:var(--rose)">♥</span> love / bond</div>
+              <div class="row"><span class="ic" style="color:var(--gold)">⛓</span> family</div>
+              <div class="row"><span class="ic" style="color:var(--mako)">➜</span> mentor</div>
+              <div class="row"><span class="ic" style="color:var(--ink-soft)">◆</span> ally</div>
+              <div class="row"><span class="ic" style="color:var(--jenova)">⚔</span> enmity</div>
+            </div>
+            <div class="graph-hint">click a node · drag to rearrange · declassify for hidden ties</div>
+            <div id="roster" class="roster" aria-label="Character roster"></div>
           </div>
-          <div class="graph-hint">click a node · drag to rearrange · declassify for hidden ties</div>
         </div>
         <aside class="dossier" id="dossier" aria-live="polite">
           <div class="empty">

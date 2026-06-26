@@ -29,12 +29,13 @@ If you are a rights holder and have any concerns, please open an issue.
 - **Timeline** — a chronological story spine from the Cetra (~2000 years ago) to
   the Geostigma aftermath. **Click any incident** to expand a deeper account and
   an original illustration, color-coded by source entry.
-- **Relationships** — an interactive force-directed graph of ~50 characters drawn
-  as **vector portraits**. Search by name, click a node to dim the rest, and open
-  a **dossier** with the character's temperament, story role, expanded background
-  (e.g. Cloud's identity crisis), a die-hard-fan "Did you know?", and clickable
-  connections. **Hover a connection** for a tooltip, or select a character to see
-  its ties labelled inline. Edge types: ♥ love · ⛓ family · ➜ mentor · ◆ ally · ⚔ enmity.
+- **Characters** — ~50 characters drawn as **vector portraits**, in two modes:
+  a **Web** (force-directed relationship graph) and a **Grid** (alphabetical
+  roster for easy browsing). Search by name/role, then open a **dossier** with the
+  character's temperament, story role, expanded background (e.g. Cloud's identity
+  crisis), a die-hard-fan "Did you know?", and clickable connections. In Web mode,
+  **hover a connection** for a tooltip or select a character to see its ties
+  labelled inline. Edge types: ♥ love · ⛓ family · ➜ mentor · ◆ ally · ⚔ enmity.
 - **Compendium** — cards organized into *The Planet & Its Powers*, *Summons*
   (Ifrit, Shiva, Bahamut, Knights of the Round, …), and *Artifacts & Weapons*
   (the Buster Sword, the Masamune, the Black & White Materia, …).

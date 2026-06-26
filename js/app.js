@@ -96,6 +96,33 @@ function eventChars(ev) {
   } else {
     events.forEach(el => el.classList.add("in"));
   }
+
+  // expand / collapse all
+  const expandAllBtn = document.getElementById("expand-all");
+  function setAllCards(open) {
+    root.querySelectorAll(".card").forEach(card => {
+      const det = card.querySelector(".details");
+      if (!det) return;
+      det.classList.toggle("open", open);
+      const exp = card.querySelector(".expand");
+      if (exp) {
+        exp.setAttribute("aria-expanded", open ? "true" : "false");
+        exp.classList.toggle("open", open);
+        const l = exp.querySelector(".exp-lbl");
+        if (l) l.textContent = open ? "Show less" : "Read more";
+      }
+    });
+    expandAllBtn.setAttribute("aria-pressed", open ? "true" : "false");
+    expandAllBtn.classList.toggle("open", open);
+    expandAllBtn.querySelector(".tl-lbl").textContent = open ? "Collapse all" : "Expand all";
+  }
+  if (expandAllBtn) {
+    expandAllBtn.addEventListener("click", () => {
+      const dets = root.querySelectorAll(".details");
+      const allOpen = dets.length > 0 && Array.from(dets).every(d => d.classList.contains("open"));
+      setAllCards(!allOpen);
+    });
+  }
 })();
 
 /* ============================================================
@@ -341,6 +368,7 @@ function attachDrag(n) {
 
 /* ---- selection + dossier ---- */
 let selectedId = null;
+let curMode = "web";   // "web" graph or "grid" roster
 function neighborsOf(id) { const rev = isRevealed(); return edges.filter(e => (rev || !e.spoiler) && (e.a === id || e.b === id)); }
 
 function applySelectionStyles() {
@@ -378,7 +406,7 @@ function applySelectionStyles() {
   });
   buildEdgeLabels(id);
 }
-function selectNode(id) { selectedId = id; applySelectionStyles(); renderDossier(id); closeSearch(); }
+function selectNode(id) { selectedId = id; applySelectionStyles(); renderDossier(id); closeSearch(); markRosterSelected(id); }
 function clearSelection() { selectedId = null; applySelectionStyles(); }
 
 function renderDossier(id) {
@@ -450,14 +478,51 @@ function runSearch() {
   searchResults.classList.add("open");
 }
 if (searchInput) {
-  searchInput.addEventListener("input", runSearch);
+  searchInput.addEventListener("input", () => { if (curMode === "grid") filterRoster(searchInput.value); else runSearch(); });
   searchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") { const first = searchResults.querySelector(".sr-item"); if (first) selectNode(first.dataset.go); }
-    if (e.key === "Escape") { searchInput.value = ""; closeSearch(); }
+    if (e.key === "Enter") {
+      if (curMode === "grid") { const first = roster.querySelector(".roster-card:not(.hide)"); if (first) selectNode(first.dataset.id); }
+      else { const first = searchResults.querySelector(".sr-item"); if (first) selectNode(first.dataset.go); }
+    }
+    if (e.key === "Escape") { searchInput.value = ""; closeSearch(); if (curMode === "grid") filterRoster(""); }
   });
   searchResults.addEventListener("click", (e) => { const it = e.target.closest(".sr-item"); if (it) { selectNode(it.dataset.go); searchInput.value = charById[it.dataset.go].name; } });
   document.addEventListener("click", (e) => { if (!e.target.closest(".search-wrap")) closeSearch(); });
 }
+
+/* ---- view modes: web graph / alphabetical grid ---- */
+const roster = document.getElementById("roster");
+const modeBtns = Array.from(document.querySelectorAll(".mode-btn"));
+function renderRoster() {
+  const sorted = CHARACTERS.slice().sort((a, b) => a.name.localeCompare(b.name));
+  roster.innerHTML = sorted.map(c =>
+    `<button class="roster-card" data-id="${c.id}">
+      <span class="rc-pic">${portraitSVG(c, 50, "")}</span>
+      <span class="rc-meta"><span class="rc-name">${c.name}</span><span class="rc-role">${c.role}</span></span>
+    </button>`).join("");
+  roster.querySelectorAll(".roster-card").forEach(b => b.addEventListener("click", () => selectNode(b.dataset.id)));
+}
+function markRosterSelected(id) { if (!roster) return; roster.querySelectorAll(".roster-card").forEach(b => b.classList.toggle("sel", b.dataset.id === id)); }
+function filterRoster(q) {
+  if (!roster) return;
+  q = (q || "").trim().toLowerCase();
+  roster.querySelectorAll(".roster-card").forEach(b => {
+    const c = charById[b.dataset.id];
+    const hit = !q || c.name.toLowerCase().includes(q) || (c.role || "").toLowerCase().includes(q) || FACTIONS[c.faction].name.toLowerCase().includes(q);
+    b.classList.toggle("hide", !hit);
+  });
+}
+function setMode(m) {
+  curMode = m;
+  graphPane.classList.toggle("mode-web", m === "web");
+  graphPane.classList.toggle("mode-grid", m === "grid");
+  modeBtns.forEach(b => { const on = b.dataset.mode === m; b.classList.toggle("active", on); b.setAttribute("aria-selected", on ? "true" : "false"); });
+  closeSearch();
+  if (m === "grid") { cancelAnimationFrame(rafId); filterRoster(searchInput ? searchInput.value : ""); markRosterSelected(selectedId); }
+  else { run(); }
+}
+modeBtns.forEach(b => b.addEventListener("click", () => setMode(b.dataset.mode)));
+renderRoster();
 
 /* ============================================================
    VIEW SWITCHING + SPOILER TOGGLE
@@ -473,7 +538,7 @@ function switchView(key) {
     t.btn.setAttribute("aria-selected", on ? "true" : "false");
     t.view.classList.toggle("active", on);
   });
-  if (key === "relations") run();
+  if (key === "relations" && curMode === "web") run();
   window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
 }
 Object.entries(tabs).forEach(([k, t]) => t.btn.addEventListener("click", () => switchView(k)));

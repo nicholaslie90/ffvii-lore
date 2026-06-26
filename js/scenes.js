@@ -192,9 +192,26 @@ function FFScene(key) {
         + `<g transform="translate(100,42)"><circle r="18" fill="none" stroke="#c45bff" stroke-width="2" opacity="0.8"/><path d="M-10 8 A12 12 0 1 1 10 8 L6 14 H10 M-6 14 H-10 L-10 8" fill="none" stroke="#c45bff" stroke-width="2" opacity="0.8"/></g>`
         + `<circle cx="100" cy="42" r="28" fill="#c45bff" opacity="0.1"/>`;
 
+    case "reels":  // Gast's Reports — projector + a Cetra on screen
+      return sky("#0a1410", "#0e1f1a")
+        + ground("#0a1310", 80)
+        + `<rect x="24" y="50" width="48" height="28" rx="4" fill="#16201d" stroke="#1c4a3e" stroke-width="1.2"/>`
+        + reel(38, 44) + reel(60, 44)
+        + `<rect x="70" y="58" width="9" height="12" rx="2" fill="#0e2620" stroke="#2a8f6f" stroke-width="1"/>`
+        + `<path d="M79 60 L150 38 L150 86 L79 70 Z" fill="#f0c861" opacity="0.12"/>`
+        + `<rect x="148" y="32" width="44" height="56" rx="3" fill="#0c1812" stroke="#caa45a" stroke-width="1.3"/>`
+        + `<circle cx="170" cy="58" r="14" fill="#f0c861" opacity="0.16"/>`
+        + `<ellipse cx="170" cy="52" rx="5.5" ry="6.5" fill="#e6dcc0"/>`
+        + `<path d="M161 86 Q162 70 170 65 Q178 70 179 86 Z" fill="#6e4a2f"/>`
+        + `<circle cx="156" cy="40" r="1.8" fill="#e2576b" opacity="0.9"/>`;
+
     default:
       return sky("#0c1110", "#13201c") + ground("#0a0f0d", 70)
         + `<circle cx="100" cy="46" r="10" fill="#45e6b0" opacity="0.3"/><circle cx="100" cy="46" r="20" fill="#45e6b0" opacity="0.1"/>`;
+  }
+
+  function reel(x, y) {
+    return `<g transform="translate(${x},${y})"><circle r="9" fill="#0e1a16" stroke="#2a8f6f" stroke-width="1.2"/><circle r="2.4" fill="#2a8f6f"/><g stroke="#2a8f6f" stroke-width="1" opacity="0.7"><line x1="0" y1="-7" x2="0" y2="-3.4"/><line x1="0" y1="7" x2="0" y2="3.4"/><line x1="-7" y1="0" x2="-3.4" y2="0"/><line x1="7" y1="0" x2="3.4" y2="0"/></g></g>`;
   }
 
   function flames(x, y) {
