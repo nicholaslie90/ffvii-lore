@@ -407,6 +407,102 @@ const CHARACTERS = [
     bio:"Yuffie's partner in the Remake INTERmission episode, a Wutai operative sent with her to infiltrate Shinra and steal its 'ultimate Materia.'",
     tidbit:"Sonon trained under Yuffie's late mentor and lost his sister in the Sector 7 plate collapse, giving Wutai's war with Shinra a personal face. His synergized combat with Yuffie introduced the team-attack system later expanded in Rebirth.",
     portrait:{ skin:"#e0b48a", hair:"#1c1814", style:"neat", eyes:"#2a2018", clothes:"#2f4f54", acc:["ponytail"] } },
+
+  /* ---------- ORIGINAL GAME & ADVENT CHILDREN ---------- */
+  { id:"caitsith", name:"Cait Sith", keys:["Cait Sith"], faction:"ally", role:"Fortune-telling robot · Reeve's puppet",
+    personality:"A cheeky, theatrical showman who tells fortunes through a megaphone and rides a giant Moogle. All comic bravado on the surface — but when it counts he proves unexpectedly, movingly brave.",
+    bio:"The toy-like robot cat that joins Cloud's party, remote-controlled by the Shinra executive Reeve. It fights with a megaphone, slots, and dice.",
+    spoilerBio:"Cait Sith is Reeve's puppet — first planted as a Shinra spy. When cornered, the first unit sacrifices itself to save the group, and Reeve simply sends in a replacement, making Cait Sith the one party member who can 'die' and come back.",
+    tidbit:"Cait Sith's slot-machine Limit Break includes 'Game Over,' a 1-in-64 jackpot that instantly kills every enemy on screen — or, on bad luck, the whole party. He's also the only party member who is never physically present.",
+    portrait:{ style:"cat", clothes:"#7a1f2a" } },
+
+  { id:"corneo", name:"Don Corneo", short:"Corneo", keys:["Corneo"], faction:"ally", role:"Don of Wall Market",
+    personality:"A lecherous, gaudy, cackling crime boss whose courage evaporates the instant he's cornered. Greedy and grotesque, he treats people as playthings — until someone scarier walks in.",
+    bio:"The sleazy kingpin of Midgar's Wall Market, who 'auditions' brides and unwittingly drags Cloud — in disguise — into his mansion.",
+    tidbit:"Corneo is the reason for FFVII's infamous cross-dressing sequence: to reach him, Cloud must dress as a woman, a scene Remake reinvented into a triumphant Honeybee Inn dance number with Andrea Rhodea.",
+    portrait:{ skin:"#d8b48c", hair:"#1a1a1a", style:"bald", eyes:"#2a2018", clothes:"#6a2a6a", acc:["beard"] } },
+
+  { id:"palmer", name:"Palmer", keys:["Palmer"], faction:"shinra", role:"Head of the Space Program",
+    personality:"A gluttonous, cowardly buffoon of an executive, forever sipping tea and dodging blame. Comic-relief Shinra brass with none of the menace and all of the greed.",
+    bio:"The rotund head of Shinra's defunct Space Program, whose neglect helped ground Cid Highwind's dream of spaceflight.",
+    tidbit:"Palmer's the butt of one of the game's slapstick beats — he gets comically run over by the Tiny Bronco — and his tea order ('lard… and a little tea') is a long-running fan in-joke.",
+    portrait:{ skin:"#e0b48a", hair:"#b0a890", style:"bald", eyes:"#3a2e2e", clothes:"#3a3326", acc:["mustache"] } },
+
+  { id:"seto", name:"Seto", keys:["Seto"], faction:"ally", role:"Warrior of Cosmo Canyon · Red XIII's father",
+    personality:"Silent and resolute, remembered wrongly as a coward but in truth the bravest of his tribe — a guardian who gave everything, and asked for nothing, to protect his home.",
+    bio:"Red XIII's father, a warrior of Cosmo Canyon who defended the canyon from the invading Gi tribe.",
+    spoilerBio:"Seto fought the Gi alone until their poison arrows turned him to stone — and he still stands sentinel over Cosmo Canyon to this day. Nanaki, who believed his father a deserter, learns the truth and finally honors him.",
+    tidbit:"The reveal of Seto, petrified mid-roar above Cosmo Canyon as Bugenhagen tells his story, is one of FFVII's quiet emotional high points — and the moment Red XIII grows up.",
+    portrait:{ skin:"#9a9488", hair:"#6e6a60", style:"beast", eyes:"#9ad6ff", clothes:"#5a564c", acc:["scar"] } },
+
+  { id:"denzel", name:"Denzel", keys:["Denzel"], faction:"ally", role:"Orphan of Edge",
+    personality:"A quiet, watchful boy hardened by loss yet aching to belong. Brave beyond his years, he looks to Cloud as the hero — and the family — he needs.",
+    bio:"An orphan from the Sector 7 slums who lost his parents in Meteorfall and is taken in by Cloud and Tifa, living with them and Marlene at Seventh Heaven.",
+    spoilerBio:"Denzel is stricken with Geostigma in Advent Children, and his quiet suffering is part of what finally pulls Cloud out of his guilt. He's cured by the healing rain at the film's end.",
+    tidbit:"Denzel headlines his own anime short, 'Final Fantasy VII: Last Order' / 'On the Way to a Smile — Case of Denzel,' which fills in how he survived the plate fall and found his way to Cloud and Tifa.",
+    portrait:{ skin:"#ecc6a0", hair:"#7a5a3a", style:"short", eyes:"#5a4030", clothes:"#4a5a4a" } },
+
+  /* ---------- CRISIS CORE ---------- */
+  { id:"lazard", name:"Lazard", keys:["Lazard"], faction:"shinra", role:"Director of SOLDIER",
+    personality:"Polished, ambitious and quietly bitter, Lazard plays the loyal company man while nursing a grudge against the father who disowned him. Beneath the bureaucrat is a man searching for a cause worth his loyalty.",
+    bio:"The bespectacled Director of SOLDIER in Crisis Core, who oversees Zack and the response to Genesis's defection.",
+    spoilerBio:"Lazard is revealed to be an illegitimate son of President Shinra, cast aside from the succession. He betrays the company to aid Genesis, ultimately succumbing to degradation as a Genesis copy — dying at peace having chosen his own side.",
+    tidbit:"Lazard's full name, Lazard Deusericus, and his quiet kinship with Rufus (both Shinra sons, raised worlds apart) make him one of Crisis Core's most subtly tragic figures.",
+    portrait:{ skin:"#ecc6a0", hair:"#ecdf9a", style:"neat", eyes:"#6a86a8", clothes:"#cfd2d4", acc:["glasses"] } },
+
+  { id:"kunsel", name:"Kunsel", keys:["Kunsel"], faction:"soldier", role:"SOLDIER 2nd Class",
+    personality:"Easygoing, sharp and improbably well-informed, Kunsel is the friend who always seems to know what's really going on. Loyal and grounded, he's the normal life Zack keeps almost reaching.",
+    bio:"Zack's dependable SOLDIER friend in Crisis Core, who keeps him fed with intel, gossip, and a steady stream of emails.",
+    tidbit:"Kunsel is never once seen without his helmet, and his encyclopedic knowledge of Shinra's secrets has spawned a popular fan theory that he quietly knew the whole conspiracy all along.",
+    portrait:{ skin:"#e3bd92", hair:"#3a2e22", style:"short", eyes:"#5fe3ff", glow:true, clothes:"#2a2f36" } },
+
+  { id:"gillian", name:"Gillian Hewley", short:"Gillian", keys:["Gillian"], faction:"shinra", role:"Scientist · Angeal's mother",
+    personality:"Gentle, dutiful and crushed by guilt, Gillian carries the weight of a science she helped birth. A loving mother who comes to believe her own death is the only amends she can make.",
+    bio:"Angeal's mother and a former Shinra researcher — herself the original subject of Project G.",
+    spoilerBio:"Gillian's cells (derived from Jenova) are the true source of the 'G' in Project G, passed to Angeal and Genesis. Unable to bear what the project did to her son, she takes her own life.",
+    tidbit:"Because the 'G-cells' trace back to Gillian rather than to Genesis, she — not Hollander or Hojo — is arguably the genetic mother of the entire SOLDIER degradation crisis.",
+    portrait:{ skin:"#e8c8a0", hair:"#6e5a44", style:"neat", eyes:"#5a4636", clothes:"#cfd2d4" } },
+
+  /* ---------- BEFORE CRISIS (original Turks & AVALANCHE) ---------- */
+  { id:"veld", name:"Veld", keys:["Veld"], faction:"turks", role:"Leader of the Turks (original)",
+    personality:"Stern, weathered and intensely loyal — to Shinra, and to a secret that pulls the other way. A commander who has buried his conscience deep, and finds it again too late.",
+    bio:"The original commander of the Turks in Before Crisis, and Tseng's predecessor, leading the hunt against AVALANCHE.",
+    spoilerBio:"Veld is secretly the father of Elfé, the leader of the very AVALANCHE he's hunting — having believed his family killed in a Shinra operation years before. In the end he turns on Shinra to save her.",
+    tidbit:"Veld (localized from 'Verdot') anchors Before Crisis's whole tragedy: a Turk leader whose loyalty to Shinra and love for his lost daughter are on a collision course from the first episode.",
+    portrait:{ skin:"#d8b48c", hair:"#3a342e", style:"neat", eyes:"#3a2e2e", clothes:"#14161a", acc:["beard"] } },
+
+  { id:"elfe", name:"Elfé", short:"Elfé", keys:["Elfé","Elfe"], faction:"avalanche", role:"Leader of (original) AVALANCHE",
+    personality:"Cold, commanding and quietly dying, Elfé leads with iron resolve while a borrowed power eats her alive. Beneath the icy general is a daughter robbed of her name and her past.",
+    bio:"The enigmatic leader of the original AVALANCHE in Before Crisis, who wields a Materia of terrible power.",
+    spoilerBio:"Elfé's true name is Felicia — she is Veld's lost daughter, kept alive and controlled by the Zirconiade Materia fused into her body, and manipulated by the zealot Fuhito.",
+    tidbit:"Elfé predates Barret's AVALANCHE by years; Before Crisis reframes 'AVALANCHE' not as one cell but as a movement, with Elfé's tragic, doomed faction as its first and most extreme incarnation.",
+    portrait:{ skin:"#ecc6a0", hair:"#c4bcd6", style:"long", eyes:"#6a5a8a", clothes:"#2a2f3a" } },
+
+  { id:"fuhito", name:"Fuhito", keys:["Fuhito"], faction:"avalanche", role:"AVALANCHE's zealot",
+    personality:"A cold, brilliant fanatic who despises humanity itself. To Fuhito the Planet can only be saved by erasing the people poisoning it — and he will sacrifice anyone, Elfé included, to do it.",
+    bio:"The fanatical strategist of the original AVALANCHE, obsessed with summoning the destructive Materia Zirconiade to wipe out humankind.",
+    tidbit:"Fuhito is the dark mirror of every later eco-warrior: he takes 'save the Planet' to its genocidal extreme, making Barret's AVALANCHE look restrained by comparison.",
+    portrait:{ skin:"#d8c2a8", hair:"#1c1814", style:"slick", eyes:"#3a3a3a", clothes:"#2a2622", acc:["glasses"] } },
+
+  { id:"shears", name:"Shears", keys:["Shears"], faction:"avalanche", role:"AVALANCHE warrior",
+    personality:"A powerful, principled fighter devoted to Elfé and increasingly sickened by Fuhito's fanaticism. Loyal to people, not to dogma — and willing to break with the cause when it loses its soul.",
+    bio:"Elfé's right hand and the muscle of the original AVALANCHE, who fights the Turks with mechanical gauntlets.",
+    tidbit:"Shears's growing disgust with Fuhito's methods makes him one of Before Crisis's most sympathetic 'enemies,' and his arc quietly questions where the line between resistance and atrocity lies.",
+    portrait:{ skin:"#d8a878", hair:"#1c1814", style:"short", eyes:"#3a2e2e", clothes:"#3a3a3a" } },
+
+  /* ---------- DIRGE OF CERBERUS & WUTAI ---------- */
+  { id:"shalua", name:"Shalua Rui", short:"Shalua", keys:["Shalua"], faction:"ally", role:"WRO scientist · Shelke's sister",
+    personality:"Driven to the edge of self-destruction by a single purpose — finding her lost sister. Brilliant and reckless, she pours her broken body into the search, sparing nothing, least of all herself.",
+    bio:"A scientist of Reeve's World Regenesis Organization in Dirge of Cerberus, who has spent years hunting for her sister, lost to Deepground.",
+    spoilerBio:"Shalua lost an arm and an eye (replaced with cybernetics) in her search for Shelke. Reunited with her at last, she gives her life in Deepground — moments before fully understanding the child her sister had become.",
+    tidbit:"Shalua and Shelke's relationship is the emotional core of Dirge of Cerberus: a sister who never stopped searching, and a sister frozen as a child who can barely remember being loved.",
+    portrait:{ skin:"#e8c8a0", hair:"#3a2e22", style:"short", eyes:"#5fd0ff", glow:true, clothes:"#cfd2d4", acc:["scar"] } },
+
+  { id:"godo", name:"Godo Kisaragi", short:"Godo", keys:["Godo"], faction:"ally", role:"Lord of Wutai · Yuffie's father",
+    personality:"Proud but resigned, Godo carries the shame of Wutai's surrender like a stone. Stern and traditional, he clashes with his fiery daughter — though both, in truth, want the same lost glory back.",
+    bio:"The ruler of Wutai and Yuffie's father, who laid down arms when Shinra defeated his nation in the Wutai War.",
+    tidbit:"Godo's acceptance of Wutai's defeat is exactly what Yuffie rebels against — her Materia-stealing crusade is, at heart, a daughter trying to restore the pride her father gave up.",
+    portrait:{ skin:"#d8a878", hair:"#2a2622", style:"neat", eyes:"#3a2e2e", clothes:"#5a2a2a", acc:["beard","ponytail"] } },
 ];
 
 // relationship types
@@ -484,6 +580,33 @@ const RELATIONS = [
   ["chadley","cloud","ally","intel & Materia"],
   ["roche","cloud","ally","rival racer"],
   ["sonon","yuffie","ally","Wutai partner"],
+  // original game & Advent Children
+  ["caitsith","reeve","ally","Reeve's puppet"],
+  ["caitsith","cloud","ally","party member"],
+  ["corneo","cloud","nemesis","Wall Market"],
+  ["palmer","president","ally","Shinra board"],
+  ["palmer","cid","nemesis","grounded dream"],
+  ["seto","redxiii","family","father"],
+  ["seto","bugenhagen","ally","Cosmo Canyon"],
+  ["denzel","cloud","ally","ward"],
+  ["denzel","tifa","ally","ward"],
+  ["denzel","marlene","ally","found family"],
+  // Crisis Core
+  ["lazard","zack","ally","director"],
+  ["kunsel","zack","ally","SOLDIER friend"],
+  ["gillian","angeal","family","mother"],
+  ["gillian","hollander","ally","Project G"],
+  // Before Crisis
+  ["veld","tseng","mentor","predecessor"],
+  ["veld","reno","ally"],
+  ["elfe","fuhito","ally","AVALANCHE"],
+  ["elfe","shears","ally","AVALANCHE"],
+  ["fuhito","shears","ally","uneasy"],
+  // Dirge & Wutai
+  ["shalua","shelke","family","sister"],
+  ["shalua","reeve","ally","WRO"],
+  ["shalua","vincent","ally"],
+  ["godo","yuffie","family","father"],
   // spoiler ties
   ["sephiroth","jenova","family","'mother'", true],
   ["sephiroth","hojo","family","father", true],
@@ -505,6 +628,9 @@ const RELATIONS = [
   ["weiss","vincent","nemesis","Omega", true],
   ["marlene","dyne","family","true father", true],
   ["chadley","gast","ally","built on his data", true],
+  ["lazard","rufus","family","half-brothers", true],
+  ["lazard","genesis","ally","sympathizer", true],
+  ["veld","elfe","family","father", true],
 ];
 
 const EVENTS = [
@@ -544,7 +670,7 @@ const EVENTS = [
 
   // ---- The SOLDIER Tragedy ----
   { era:"The SOLDIER Tragedy", entry:"Before Crisis", yr:"~6 yrs before", title:"AVALANCHE vs. the Turks", art:"avalanche",
-    blurb:"The original AVALANCHE, a radical anti-Shinra movement, wages a shadow war against the corporation. The Turks — Shinra's plainclothes enforcers — are sent to counter them, the events chronicled in Before Crisis.",
+    blurb:"The original AVALANCHE — led by Elfé and the fanatic Fuhito — wages a shadow war against Shinra. Veld's Turks are sent to counter them, the events chronicled in Before Crisis.",
     detail:"The first AVALANCHE was larger and more zealous than Barret's later cell, led by a charismatic radical named Elfé and willing to use far harsher methods to stop Shinra's reactors. Before Crisis follows the Turks tasked with hunting them — humanizing the 'villains' and revealing how tangled Shinra's internal politics already were. The conflict sets the template for the war the main game inherits." },
   { era:"The SOLDIER Tragedy", entry:"Crisis Core", yr:"~5 yrs before", title:"Project G & the Degradation", spoiler:true, art:"wing",
     blurb:"Hollander's Project G births Genesis and Angeal from Jenova-derived cells — but the experiment is flawed. The 'degradation' that will unravel both men, body and mind, is sown from birth, and Hollander dangles a false cure to turn Genesis against Shinra.",

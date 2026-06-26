@@ -20,6 +20,7 @@ function FFPortrait(p, uid) {
 
   if (style === "alien") return alienFace(p, id);
   if (style === "beast") return beastFace(p, id);
+  if (style === "cat") return catFace(p, id);
 
   const skinShadow = shade(skin, -0.12);
   const hairShadow = shade(hair, -0.18);
@@ -178,6 +179,27 @@ function beastFace(p, id) {
   s += `<path d="M38 46 L42 46" stroke="#2a140a" stroke-width="1.4"/>`; // closed/scarred eye
   // headband feather + tattoo hint
   s += `<path d="M46 26 L50 14 L54 26 Z" fill="#e8d2a0"/><path d="M50 14 L50 26" stroke="#b09060" stroke-width="0.8"/>`;
+  return s;
+}
+
+/* ---- Cait Sith (cat on a moogle, crowned) ---- */
+function catFace(p, id) {
+  const cape = p.clothes || "#7a1f2a";
+  let s = "";
+  s += `<circle cx="50" cy="50" r="50" fill="#0c1014"/>`;
+  s += `<circle cx="50" cy="94" r="11" fill="#f0d6e0" opacity="0.55"/>`;        // moogle pompom
+  s += `<path d="M22 100 Q30 78 50 76 Q70 78 78 100 Z" fill="${cape}"/>`;        // cape
+  s += `<path d="M30 38 L25 17 L45 33 Z" fill="#17171d"/><path d="M70 38 L75 17 L55 33 Z" fill="#17171d"/>`;
+  s += `<path d="M33 33 L31 23 L41 31 Z" fill="#3a3a46"/><path d="M67 33 L69 23 L59 31 Z" fill="#3a3a46"/>`;
+  s += `<ellipse cx="50" cy="51" rx="23" ry="21" fill="#17171d"/>`;              // head
+  s += `<ellipse cx="40" cy="49" rx="7.5" ry="9.5" fill="#f3efe6"/><ellipse cx="60" cy="49" rx="7.5" ry="9.5" fill="#f3efe6"/>`;
+  s += `<circle cx="41" cy="50" r="3.6" fill="#161616"/><circle cx="59" cy="50" r="3.6" fill="#161616"/>`;
+  s += `<circle cx="42.2" cy="48.4" r="1.1" fill="#fff"/><circle cx="60.2" cy="48.4" r="1.1" fill="#fff"/>`;
+  s += `<path d="M47.5 59 L52.5 59 L50 62.5 Z" fill="#e2789a"/>`;                 // nose
+  s += `<path d="M50 62.5 Q46 65.5 43 63.5 M50 62.5 Q54 65.5 57 63.5" stroke="#3a3a46" stroke-width="1" fill="none"/>`;
+  s += `<g stroke="#cfcfd6" stroke-width="0.8" opacity="0.7"><line x1="29" y1="56" x2="18" y2="54"/><line x1="29" y1="59" x2="18" y2="61"/><line x1="71" y1="56" x2="82" y2="54"/><line x1="71" y1="59" x2="82" y2="61"/></g>`;
+  s += `<path d="M40 28 L43 19 L46 26 L50 16 L54 26 L57 19 L60 28 Z" fill="#f0c861"/>`; // crown
+  s += `<circle cx="50" cy="18" r="1.4" fill="#ff6fae"/>`;
   return s;
 }
 

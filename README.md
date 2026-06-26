@@ -29,7 +29,7 @@ If you are a rights holder and have any concerns, please open an issue.
 - **Timeline** — a chronological story spine from the Cetra (~2000 years ago) to
   the Geostigma aftermath. **Click any incident** to expand a deeper account and
   an original illustration, color-coded by source entry.
-- **Characters** — ~50 characters drawn as **vector portraits**, in two modes:
+- **Characters** — ~64 characters drawn as **vector portraits**, in two modes:
   a **Web** (force-directed relationship graph) and a **Grid** (alphabetical
   roster for easy browsing). Search by name/role, then open a **dossier** with the
   character's temperament, story role, expanded background (e.g. Cloud's identity
