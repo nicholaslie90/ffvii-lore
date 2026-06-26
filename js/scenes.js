@@ -192,6 +192,93 @@ function FFScene(key) {
         + `<g transform="translate(100,42)"><circle r="18" fill="none" stroke="#c45bff" stroke-width="2" opacity="0.8"/><path d="M-10 8 A12 12 0 1 1 10 8 L6 14 H10 M-6 14 H-10 L-10 8" fill="none" stroke="#c45bff" stroke-width="2" opacity="0.8"/></g>`
         + `<circle cx="100" cy="42" r="28" fill="#c45bff" opacity="0.1"/>`;
 
+    case "bombing":  // reactor explosion
+      return sky("#120a08", "#20100a") + ground("#0c0a08", 70)
+        + `<g fill="#15110d" stroke="#0a0806" stroke-width="1"><rect x="28" y="44" width="22" height="46"/><rect x="150" y="40" width="22" height="50"/></g>`
+        + `<g transform="translate(100,52)"><path d="M0 -30 L7 -9 L28 -7 L10 4 L17 26 L0 12 L-17 26 L-10 4 L-28 -7 L-7 -9 Z" fill="#f0a02a" opacity="0.92"/><circle r="14" fill="#ffd24a"/><circle r="7" fill="#fff3c0"/></g>`
+        + `<g fill="#15110d"><path d="M72 40 l6 -4 l1 6 Z"/><path d="M128 44 l-6 -3 l0 6 Z"/><path d="M122 30 l5 -2 l0 5 Z"/></g>`;
+
+    case "rhadore":  // First SOLDIERs — island expedition
+      return sky("#0a1420", "#103048") + stars(5, "#cfe")
+        + `<circle cx="150" cy="38" r="4" fill="#5fe3ff" opacity="0.8"/><circle cx="150" cy="38" r="11" fill="#5fe3ff" opacity="0.16"/>`
+        + `<rect x="0" y="70" width="200" height="30" fill="#0e2436"/>`
+        + `<g stroke="#2a5a7a" stroke-width="1" opacity="0.6"><line x1="18" y1="78" x2="58" y2="78"/><line x1="118" y1="88" x2="172" y2="88"/></g>`
+        + `<path d="M58 70 Q100 54 142 70 Z" fill="#13241a"/>`
+        + `<rect x="98" y="56" width="3" height="14" fill="#2a4a32"/>`
+        + `<g stroke="#1c3a28" stroke-width="2.4" fill="none" stroke-linecap="round"><path d="M100 58 q-12 -7 -18 -4 M100 58 q12 -7 18 -4 M100 58 q-2 -11 1 -15"/></g>`;
+
+    case "tank":  // Mako specimen tanks
+      return sky("#08120f", "#0c1a16") + ground("#0a1310", 80) + tube(64) + tube(136)
+        + `<line x1="0" y1="84" x2="200" y2="84" stroke="#1c4a3e" stroke-width="1" opacity="0.5"/>`;
+
+    case "mountain":  // Mt. Nibel + reactor, before the fire
+      return sky("#0c1018", "#16202c") + stars(7, "#bcd")
+        + `<path d="M0 90 L40 50 L70 78 L110 40 L150 74 L200 48 L200 100 L0 100 Z" fill="#10161e"/>`
+        + `<path d="M0 96 L60 70 L120 90 L200 66 L200 100 L0 100 Z" fill="#0a0e14"/>`
+        + `<g fill="#1a2430"><rect x="104" y="30" width="14" height="14"/><circle cx="111" cy="30" r="7"/></g>`
+        + `<circle cx="111" cy="30" r="3" fill="#5fe3ff" opacity="0.75"/>`;
+
+    case "inferno":  // Nibelheim burns — a silhouette amid flames
+      return sky("#1a0805", "#3a1206")
+        + ground("#160805", 70)
+        + `<ellipse cx="100" cy="18" rx="92" ry="18" fill="#3a1206" opacity="0.6"/>`
+        + flames(38, 62) + flames(58, 58) + flames(150, 60) + flames(170, 56)
+        + `<path d="M94 88 Q92 56 100 46 Q108 56 106 88 Z" fill="#0c0604"/>`
+        + `<ellipse cx="100" cy="40" rx="6" ry="8" fill="#0c0604"/>`
+        + `<line x1="107" y1="50" x2="122" y2="18" stroke="#0c0604" stroke-width="1.6"/>`
+        + `<path d="M99 33 q8 -5 14 -1 q-7 1 -4 7 q-7 -4 -10 -6 Z" fill="#c4ccd6" opacity="0.85"/>`;
+
+    case "rescue":  // Zangan carries Tifa from the flames
+      return sky("#1a0a06", "#341208")
+        + ground("#160a06", 72)
+        + `<ellipse cx="100" cy="20" rx="84" ry="16" fill="#2a1206" opacity="0.6"/>`
+        + flames(26, 60) + flames(46, 64) + flames(168, 58)
+        + `<path d="M84 88 Q82 64 96 58 Q104 62 104 70 L104 88 Z" fill="#1a120c"/>`
+        + `<ellipse cx="91" cy="50" rx="6" ry="7" fill="#1a120c"/>`
+        + `<path d="M100 64 Q120 57 134 63 Q120 71 100 68 Z" fill="#2a1c14"/>`
+        + `<circle cx="134" cy="61" r="4.5" fill="#2a1c14"/>`;
+
+    case "altar":  // Forgotten Capital — prayer at the altar
+      return sky("#0a1018", "#10202e")
+        + `<g fill="#13202c"><path d="M18 70 L34 28 L50 70 Z"/><path d="M148 70 L166 24 L184 70 Z"/><path d="M118 72 L132 40 L146 72 Z"/></g>`
+        + `<rect x="0" y="78" width="200" height="22" fill="#0c1a26"/>`
+        + `<g stroke="#2a5a72" stroke-width="0.8" opacity="0.5"><line x1="18" y1="86" x2="68" y2="86"/><line x1="120" y1="92" x2="182" y2="92"/></g>`
+        + `<path d="M88 78 L112 78 L108 64 L92 64 Z" fill="#1a2c3a"/>`
+        + `<path d="M96 64 Q95 54 100 50 Q105 54 104 64 Z" fill="#9aa6b0"/>`
+        + `<ellipse cx="100" cy="46" rx="3.6" ry="4.6" fill="#9a6e44"/>`
+        + `<line x1="100" y1="37" x2="100" y2="50" stroke="#cfe4ff" stroke-width="1" opacity="0.5"/>`
+        + `<circle cx="100" cy="33" r="2.6" fill="#eef4ff"/><circle cx="100" cy="33" r="9" fill="#eef4ff" opacity="0.2"/>`;
+
+    case "diverge":  // Fate unwritten — branching timelines
+      return sky("#0a0f14", "#12202a") + stars(5, "#cfe")
+        + `<path d="M100 96 L100 56" stroke="#bfeede" stroke-width="2.5" opacity="0.7" fill="none"/>`
+        + `<path d="M100 56 Q90 40 60 22" stroke="#bfeede" stroke-width="2" opacity="0.55" fill="none" stroke-dasharray="5 4"/>`
+        + `<path d="M100 56 Q112 38 150 22" stroke="#9ad0ff" stroke-width="2" opacity="0.6" fill="none"/>`
+        + `<circle cx="100" cy="56" r="4" fill="#dffaf0"/><circle cx="100" cy="56" r="11" fill="#bfeede" opacity="0.16"/>`
+        + `<g fill="#dffaf0" opacity="0.55"><circle cx="60" cy="22" r="2"/><circle cx="150" cy="22" r="2"/></g>`;
+
+    case "reassemble":  // Cloud reforms in the Lifestream
+      return sky("#08140f", "#0c2218")
+        + `<g stroke="#45e6b0" stroke-width="2" fill="none" opacity="0.55"><path d="M30 100 Q40 60 30 22"/><path d="M170 100 Q160 60 170 22"/></g>`
+        + `<circle cx="100" cy="58" r="13" fill="#45e6b0" opacity="0.12"/>`
+        + `<path d="M86 90 Q84 64 100 56 Q116 64 114 90 Z" fill="#15281f" stroke="#45e6b0" stroke-width="1" opacity="0.9"/>`
+        + `<ellipse cx="100" cy="46" rx="8" ry="10" fill="#15281f" stroke="#45e6b0" stroke-width="1"/>`
+        + `<g fill="#7af0c4"><rect x="70" y="40" width="4" height="4" opacity="0.7" transform="rotate(20 72 42)"/><rect x="126" y="50" width="4" height="4" opacity="0.6" transform="rotate(-20 128 52)"/><rect x="64" y="62" width="3" height="3" opacity="0.5"/><rect x="134" y="66" width="3" height="3" opacity="0.5"/></g>`;
+
+    case "blackwing":  // Sephiroth reborn — single black wing
+      return sky("#160a10", "#2a0e1a") + stars(5, "#caa")
+        + `<g transform="translate(72,52)"><path d="M0 0 Q40 -28 70 -4 Q44 0 54 22 Q34 8 40 32 Q22 16 24 38 Q8 22 0 0 Z" fill="#14121a" stroke="#2a2630" stroke-width="0.6"/></g>`
+        + `<path d="M150 30 l-2 8 M158 44 l-3 7 M140 56 l-2 7" stroke="#2a2630" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>`
+        + `<circle cx="40" cy="40" r="2.2" fill="#c45bff" opacity="0.75"/>`
+        + ground("#0c0810", 84);
+
+    case "omega":  // Omega WEAPON ascending with the Lifestream
+      return sky("#0a0810", "#160e22") + ground("#08060c", 74)
+        + `<g stroke="#45e6b0" stroke-width="2" fill="none" opacity="0.6"><path d="M40 100 Q50 70 44 50"/><path d="M160 100 Q150 70 156 50"/><path d="M100 100 Q100 72 100 52"/></g>`
+        + `<path d="M100 18 Q132 28 136 60 Q118 54 124 76 L100 64 L76 76 Q82 54 64 60 Q68 28 100 18 Z" fill="#1a1430" stroke="#9a6bff" stroke-width="1"/>`
+        + `<circle cx="100" cy="46" r="4" fill="#c45bff"/><circle cx="100" cy="46" r="12" fill="#c45bff" opacity="0.2"/>`
+        + `<g fill="#7af0c4" opacity="0.6"><circle cx="44" cy="64" r="1.4"/><circle cx="100" cy="60" r="1.4"/><circle cx="156" cy="64" r="1.4"/></g>`;
+
     case "degradation":  // a figure cracking and flaking apart
       return sky("#0e0c16", "#1a1226") + stars(5, "#b9a9d0")
         + ground("#0b0a12", 80)
@@ -227,6 +314,15 @@ function FFScene(key) {
         + `<circle cx="100" cy="46" r="10" fill="#45e6b0" opacity="0.3"/><circle cx="100" cy="46" r="20" fill="#45e6b0" opacity="0.1"/>`;
   }
 
+  function tube(x) {
+    return `<g transform="translate(${x},0)">`
+      + `<rect x="-13" y="26" width="26" height="58" rx="13" fill="#0e2620" stroke="#1c4a3e" stroke-width="1.5"/>`
+      + `<ellipse cx="0" cy="55" rx="11" ry="27" fill="#45e6b0" opacity="0.16"/>`
+      + `<path d="M-5 84 Q-6 64 0 56 Q6 64 5 84 Z" fill="#a8c0b8" opacity="0.85"/>`
+      + `<ellipse cx="0" cy="48" rx="4.5" ry="6" fill="#cfe8e0" opacity="0.85"/>`
+      + `<g fill="#7af0c4" opacity="0.6"><circle cx="-4" cy="70" r="1"/><circle cx="5" cy="62" r="1"/><circle cx="3" cy="76" r="0.8"/></g>`
+      + `</g>`;
+  }
   function reel(x, y) {
     return `<g transform="translate(${x},${y})"><circle r="9" fill="#0e1a16" stroke="#2a8f6f" stroke-width="1.2"/><circle r="2.4" fill="#2a8f6f"/><g stroke="#2a8f6f" stroke-width="1" opacity="0.7"><line x1="0" y1="-7" x2="0" y2="-3.4"/><line x1="0" y1="7" x2="0" y2="3.4"/><line x1="-7" y1="0" x2="-3.4" y2="0"/><line x1="7" y1="0" x2="3.4" y2="0"/></g></g>`;
   }
