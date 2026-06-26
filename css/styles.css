@@ -127,7 +127,8 @@ main { position: relative; z-index: 1; }
 .event::before { content: ""; position: absolute; top: 22px; right: -7px; width: 12px; height: 12px; border-radius: 50%; background: var(--steel-black); border: 2px solid var(--mako); box-shadow: 0 0 12px rgba(69,230,176,0.7); z-index: 3; }
 .event.right::before { right: auto; left: -7px; }
 
-.card { position: relative; background: linear-gradient(180deg, var(--panel), var(--steel-900)); border: 1px solid var(--line); border-left: 3px solid var(--entry, var(--mako)); border-radius: 6px; padding: 16px 18px 17px; max-width: 460px; width: 100%; transition: border-color .2s, box-shadow .2s; }
+.card { position: relative; background: linear-gradient(180deg, var(--panel), var(--steel-900)); border: 1px solid var(--line); border-left: 3px solid var(--entry, var(--mako)); border-radius: 6px; padding: 16px 18px 17px; max-width: 460px; width: 100%; cursor: pointer; transition: border-color .2s, box-shadow .2s; }
+.card .details { cursor: auto; }
 .event.right .card { border-left: 1px solid var(--line); border-right: 3px solid var(--entry, var(--mako)); }
 .card:hover { border-color: rgba(69,230,176,0.4); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; gap: 10px; }
@@ -252,6 +253,10 @@ body.revealed .event.right .card.is-spoiler { border-right-color: var(--entry); 
 
 /* ---------- COMPENDIUM ---------- */
 .comp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; padding: 10px 0 100px; }
+.comp-cat { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; margin: 22px 0 2px; }
+.comp-cat:first-child { margin-top: 4px; }
+.comp-cat span { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .26em; text-transform: uppercase; color: var(--mako); white-space: nowrap; }
+.comp-cat::after { content: ""; flex: 1; height: 1px; background: linear-gradient(to right, var(--line), transparent); }
 .comp-card { background: linear-gradient(180deg, var(--panel), var(--steel-900)); border: 1px solid var(--line); border-radius: 8px; padding: 20px 20px 22px; position: relative; overflow: hidden; }
 .comp-card::before { content: ""; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, var(--cglow, rgba(69,230,176,0.18)), transparent 70%); pointer-events: none; }
 .comp-card .sigil { font-family: var(--font-display); font-size: 1.5rem; color: var(--cglow-solid, var(--mako)); margin-bottom: 8px; }

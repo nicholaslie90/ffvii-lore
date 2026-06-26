@@ -67,17 +67,22 @@ function eventChars(ev) {
     root.appendChild(wrapEl);
   });
 
-  // chips → jump into the relationship web
+  // click anywhere on a card to expand/collapse; chips still jump to the web
   root.addEventListener("click", (e) => {
     const chip = e.target.closest(".chip");
     if (chip) { switchView("relations"); selectNode(chip.dataset.go); return; }
-    const exp = e.target.closest(".expand");
+    if (e.target.closest(".details")) return;  // don't collapse while reading expanded content
+    const card = e.target.closest(".card");
+    if (!card) return;
+    const det = card.querySelector(".details");
+    if (!det) return;
+    const open = det.classList.toggle("open");
+    const exp = card.querySelector(".expand");
     if (exp) {
-      const det = document.getElementById(exp.getAttribute("aria-controls"));
-      const open = det.classList.toggle("open");
       exp.setAttribute("aria-expanded", open ? "true" : "false");
-      exp.querySelector(".exp-lbl").textContent = open ? "Show less" : "Read more";
       exp.classList.toggle("open", open);
+      const l = exp.querySelector(".exp-lbl");
+      if (l) l.textContent = open ? "Show less" : "Read more";
     }
   });
 
@@ -98,13 +103,23 @@ function eventChars(ev) {
    ============================================================ */
 (function renderCompendium() {
   const grid = document.getElementById("comp-grid");
-  COMPENDIUM.forEach(c => {
-    const el = document.createElement("article");
-    el.className = "comp-card";
-    el.style.setProperty("--cglow", hexA(c.color, 0.18));
-    el.style.setProperty("--cglow-solid", c.color);
-    el.innerHTML = `<div class="sigil">${c.sigil}</div><h3>${c.title}</h3><p>${c.body}</p>`;
-    grid.appendChild(el);
+  const order = ["The Planet & Its Powers", "Summons", "Artifacts & Weapons"];
+  const byCat = {};
+  COMPENDIUM.forEach(c => { const k = c.cat || "Other"; (byCat[k] = byCat[k] || []).push(c); });
+  const cats = order.filter(k => byCat[k]).concat(Object.keys(byCat).filter(k => !order.includes(k)));
+  cats.forEach(cat => {
+    const h = document.createElement("div");
+    h.className = "comp-cat";
+    h.innerHTML = `<span>${cat}</span>`;
+    grid.appendChild(h);
+    byCat[cat].forEach(c => {
+      const el = document.createElement("article");
+      el.className = "comp-card";
+      el.style.setProperty("--cglow", hexA(c.color, 0.18));
+      el.style.setProperty("--cglow-solid", c.color);
+      el.innerHTML = `<div class="sigil">${c.sigil}</div><h3>${c.title}</h3><p>${c.body}</p>`;
+      grid.appendChild(el);
+    });
   });
 })();
 

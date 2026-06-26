@@ -2,7 +2,8 @@
 
 An interactive **fan-made** lorebook for the *Final Fantasy VII* Compilation —
 the original game, Crisis Core, Before Crisis, Advent Children, Dirge of Cerberus,
-and the Remake saga (Remake / Rebirth / the upcoming finale).
+Ever Crisis (incl. the original "First Soldier" arc), and the Remake saga
+(Remake / Rebirth / the upcoming finale).
 
 🌐 **Live:** https://nicholaslie90.github.io/ffvii-lore/
 
@@ -26,15 +27,17 @@ If you are a rights holder and have any concerns, please open an issue.
 ## Features
 
 - **Timeline** — a chronological story spine from the Cetra (~2000 years ago) to
-  the Geostigma aftermath. Every incident **expands** to reveal a deeper account
-  and an original illustration, color-coded by source entry.
-- **Relationships** — an interactive force-directed graph of ~44 characters drawn
+  the Geostigma aftermath. **Click any incident** to expand a deeper account and
+  an original illustration, color-coded by source entry.
+- **Relationships** — an interactive force-directed graph of ~50 characters drawn
   as **vector portraits**. Search by name, click a node to dim the rest, and open
   a **dossier** with the character's temperament, story role, expanded background
   (e.g. Cloud's identity crisis), a die-hard-fan "Did you know?", and clickable
-  connections. Edge types: ♥ love · ⛓ family · ➜ mentor · ◆ ally · ⚔ enmity.
-- **Compendium** — concept cards for the world's core forces: the Lifestream,
-  Mako, Materia, Jenova, the Cetra, SOLDIER, Shinra, the WEAPONs, and more.
+  connections. **Hover a connection** for a tooltip, or select a character to see
+  its ties labelled inline. Edge types: ♥ love · ⛓ family · ➜ mentor · ◆ ally · ⚔ enmity.
+- **Compendium** — cards organized into *The Planet & Its Powers*, *Summons*
+  (Ifrit, Shiva, Bahamut, Knights of the Round, …), and *Artifacts & Weapons*
+  (the Buster Sword, the Masamune, the Black & White Materia, …).
 - **Spoiler toggle** — a "Classified / Declassified" switch (default off) seals the
   major twists behind Shinra-file redaction; declassifying also reveals hidden
   relationship ties, so the web visibly grows as you unlock it.

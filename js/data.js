@@ -23,6 +23,7 @@ const ENTRY = {
   "Advent Children":   "#cfd8d4",
   "Dirge of Cerberus": "#9a6bff",
   "Remake / Rebirth":  "#5fd0ff",
+  "Ever Crisis":       "#b7e36b",
 };
 
 /* Character fields:
@@ -367,6 +368,45 @@ const CHARACTERS = [
     spoilerBio:"Hollander loses the race to create the perfect being to his rival Hojo, and spends Crisis Core manipulating Genesis with promises of a cure, deepening the catastrophe he helped cause.",
     tidbit:"Project G ('G' for Genesis, or for Gillian — Angeal's mother, the true source of the Jenova-derived cells) was Hollander's bid to outdo Hojo's Project S (Sephiroth). His failure and bitterness are the quiet engine behind the entire Crisis Core tragedy.",
     portrait:{ skin:"#d8b48c", hair:"#b0a890", style:"neat", eyes:"#4a3a2e", clothes:"#cfd2d4", acc:["beard"] } },
+
+  /* ---------- EVER CRISIS · "THE FIRST SOLDIER" ---------- */
+  { id:"glenn", name:"Glenn Lodbrok", keys:["Glenn"], faction:"soldier", role:"Prototype SOLDIER · Class P0",
+    personality:"Upbeat and irrepressibly optimistic, Glenn cracks jokes even mid-battle. Brash and impulsive — he leaps before he looks — but blessed with reliable instincts and a fierce loyalty to his squad.",
+    bio:"The lead of Ever Crisis's original arc 'The First Soldier': one of Shinra's earliest prototype 'P0' SOLDIERs, deployed to the remote Rhadore Archipelago to scout a Mako reactor site.",
+    tidbit:"Tetsuya Nomura named Glenn after the 'green' in the matcha tea he was drinking while naming the crew. Stranger still, Glenn was designed for FFVII Rebirth FIRST, then retroactively given his Ever Crisis origin story — and he does cameo in Rebirth.",
+    portrait:{ skin:"#e0b48a", hair:"#27221c", style:"messy", eyes:"#5fe3ff", glow:true, clothes:"#2a3a3a" } },
+
+  { id:"lucia", name:"Lucia Lin", keys:["Lucia"], faction:"soldier", role:"Prototype SOLDIER · Sniper · P0",
+    personality:"A fierce, ever-vigilant warrior whose razor perception makes her the squad's eyes — but also leaves her tense, anxious, and quick to expect the worst. A natural leader within the Shinra Army.",
+    bio:"The sniper of Glenn's prototype SOLDIER trio in 'The First Soldier,' as sharp with a rifle as she is wary of everyone around her.",
+    tidbit:"Lucia was among the very first wholly original characters created for Ever Crisis, debuting alongside Glenn and Matt — a rare case of new canon being built specifically for a mobile entry in the Compilation.",
+    portrait:{ skin:"#ecc6a0", hair:"#1c1814", style:"long", eyes:"#5fe3ff", glow:true, clothes:"#2a2f36" } },
+
+  { id:"matt", name:"Matt Winsord", keys:["Matt"], faction:"soldier", role:"Prototype SOLDIER · P0",
+    personality:"Level-headed and quick-witted, Matt is the steady judgment of the trio — the one who reads a risky situation clearly and finds the smart way through where Glenn would just charge in.",
+    bio:"The third prototype 'P0' SOLDIER of Glenn's unit, relied on for cool-headed calls on dangerous missions like the Rhadore expedition.",
+    tidbit:"Matt rounds out Ever Crisis's original SOLDIER trio. Their Rhadore mission is the lens through which 'The First Soldier' shows the dawn of the SOLDIER program — and a young Sephiroth learning, briefly, how to fight as part of a team.",
+    portrait:{ skin:"#d8a878", hair:"#2a2218", style:"short", eyes:"#5fe3ff", glow:true, clothes:"#2a3a3a" } },
+
+  /* ---------- REMAKE / REBIRTH ORIGINALS ---------- */
+  { id:"chadley", name:"Chadley", keys:["Chadley"], faction:"ally", role:"Research operative · Materia developer",
+    personality:"Polite, precise and disarmingly formal, Chadley is endlessly eager to gather 'combat data' and turn it into new Materia. His earnest, slightly uncanny enthusiasm makes him equal parts helpful and meme-worthy.",
+    bio:"A young researcher in Remake and Rebirth who equips Cloud's party with battle intel and, crucially, the Summon Materia earned by clearing his combat simulations. Assisted by an AI named Mai.",
+    spoilerBio:"Rebirth reveals Chadley (and Mai) to be an artificial being built on the research of Professor Gast, secretly dedicated to studying the planet and undermining Shinra from within — a hidden heir to Gast's legacy.",
+    tidbit:"Chadley's habit of interrupting exploration with 'Cloud, I've detected Mako readings nearby…' made him a fan-favorite meme. He's also the gatekeeper to nearly every summon in the remakes — you don't get Bahamut, Leviathan, or the others without beating his VR battles.",
+    portrait:{ skin:"#8a6a4f", hair:"#161210", style:"short", eyes:"#5fd0ff", glow:true, clothes:"#3a4048", acc:["glasses"] } },
+
+  { id:"roche", name:"Roche", keys:["Roche"], faction:"soldier", role:"SOLDIER 3rd Class",
+    personality:"A theatrical adrenaline junkie obsessed with speed and the thrill of battle, Roche calls worthy foes 'my friend' and lives for the next duel. All flamboyant bravado at full throttle.",
+    bio:"A motorcycle-riding SOLDIER 3rd Class introduced in Remake, who challenges Cloud to a high-speed bike duel through Midgar.",
+    tidbit:"Nicknamed 'Speed Demon,' Roche is an entirely Remake-original character whose over-the-top bike boss fight became a standout set piece — and a small homage to FFVII's love of vehicle chases.",
+    portrait:{ skin:"#e8c39a", hair:"#c9b079", style:"slick", eyes:"#5fe3ff", glow:true, clothes:"#2a3a3a", acc:["goggles"] } },
+
+  { id:"sonon", name:"Sonon Kusakabe", short:"Sonon", keys:["Sonon"], faction:"ally", role:"Wutai operative",
+    personality:"Disciplined, principled and protective, Sonon carries the quiet grief of Wutai's defeat. Steadfast and selfless, he fights with a staff and a older-brother's care for his reckless partner.",
+    bio:"Yuffie's partner in the Remake INTERmission episode, a Wutai operative sent with her to infiltrate Shinra and steal its 'ultimate Materia.'",
+    tidbit:"Sonon trained under Yuffie's late mentor and lost his sister in the Sector 7 plate collapse, giving Wutai's war with Shinra a personal face. His synergized combat with Yuffie introduced the team-attack system later expanded in Rebirth.",
+    portrait:{ skin:"#e0b48a", hair:"#1c1814", style:"neat", eyes:"#2a2018", clothes:"#2f4f54", acc:["ponytail"] } },
 ];
 
 // relationship types
@@ -435,6 +475,15 @@ const RELATIONS = [
   ["weiss","azul","ally","Tsviets"],
   ["weiss","shelke","ally","Deepground"],
   ["shelke","vincent","ally","shared memory"],
+  // Ever Crisis · The First Soldier
+  ["glenn","lucia","ally","First SOLDIERs"],
+  ["glenn","matt","ally","First SOLDIERs"],
+  ["lucia","matt","ally","First SOLDIERs"],
+  ["glenn","sephiroth","ally","uneasy comrades"],
+  // Remake / Rebirth
+  ["chadley","cloud","ally","intel & Materia"],
+  ["roche","cloud","ally","rival racer"],
+  ["sonon","yuffie","ally","Wutai partner"],
   // spoiler ties
   ["sephiroth","jenova","family","'mother'", true],
   ["sephiroth","hojo","family","father", true],
@@ -455,6 +504,7 @@ const RELATIONS = [
   ["weiss","hojo","nemesis","possessed", true],
   ["weiss","vincent","nemesis","Omega", true],
   ["marlene","dyne","family","true father", true],
+  ["chadley","gast","ally","built on his data", true],
 ];
 
 const EVENTS = [
@@ -485,6 +535,9 @@ const EVENTS = [
   { era:"Rise of Shinra", entry:"Shinra Era", yr:"~27 yrs ago", title:"Vincent's Sin", spoiler:true, art:"coffin",
     blurb:"The Turk Vincent Valentine, unable to stop Lucrecia, is shot by Hojo and remade through cruel experiments — left near-immortal and entombed in a coffin beneath the Shinra Manor to sleep off his guilt.",
     detail:"Vincent was assigned to protect the Jenova Project's scientists and fell in love with Lucrecia. When she chose to carry Hojo's experimental child, Vincent's failure to stop her — and his belief that he let her doom herself — became a guilt he decided he deserved to suffer forever. Hojo shot him, experimented on his body, and the resulting creature could not die. Vincent sealed himself in a coffin in the Manor basement, choosing endless sleep as penance, until the party wakes him decades later." },
+  { era:"Rise of Shinra", entry:"Ever Crisis", yr:"~15 yrs before", title:"The First SOLDIERs", art:"war",
+    blurb:"As Shinra forges its SOLDIER program, three prototype 'P0' SOLDIERs — Glenn Lodbrok, Lucia Lin, and Matt Winsord — are sent to the remote Rhadore Archipelago to scout a site for a new Mako reactor. Ever Crisis's original arc, 'The First Soldier,' begins here.",
+    detail:"When the islands' natives ambush the unit, a young Sephiroth — not yet the legend, still unused to fighting beside anyone — is forced to work as part of the team. Grudgingly, he opens up to the trio and, for a moment, finds something like friendship: a rare glimpse of the man before the monster. 'The First Soldier' fills in the dawn of SOLDIER and threads connections that surface as late as Rebirth, where Glenn reappears." },
   { era:"Rise of Shinra", entry:"Before Crisis", yr:"~15 yrs ago", title:"The Fall of Corel", art:"fire",
     blurb:"A Mako reactor accident gives Shinra a pretext to burn the coal town of Corel to the ground. Barret and his friend Dyne lose everything; Barret raises Dyne's daughter Marlene and swears vengeance on the company.",
     detail:"Barret, believing Mako would modernize his coal town, personally convinced Corel to accept a Shinra reactor. When the reactor was sabotaged, Shinra blamed the townsfolk and razed Corel, killing Barret's wife Myrna and Dyne's wife Eleanor. Barret and Dyne, fleeing across a trestle, were both shot and lost their right hands in the fall — the shared wound that turns them into mirror images. Barret took Dyne's infant daughter Marlene and a gun-arm, and carried the guilt of having invited Shinra in himself." },
@@ -579,28 +632,71 @@ const EVENTS = [
 ];
 
 const COMPENDIUM = [
-  { sigil:"❂", title:"The Lifestream", color:"#45e6b0",
+  /* ===== The Planet & Its Powers ===== */
+  { cat:"The Planet & Its Powers", sigil:"❂", title:"The Lifestream", color:"#45e6b0",
     body:"The flow of spirit energy that courses through the Planet — the souls of all who have lived. Life springs from it and returns to it in death, carrying knowledge and memory back into the whole. To wound the Planet is to disturb this stream." },
-  { sigil:"◈", title:"Mako", color:"#45e6b0",
+  { cat:"The Planet & Its Powers", sigil:"◈", title:"Mako", color:"#45e6b0",
     body:"Lifestream refined into liquid energy. Shinra draws it through Mako reactors to power the world — but every drop burned is life stolen from the Planet, hastening its death. Prolonged exposure causes Mako poisoning." },
-  { sigil:"◉", title:"Materia", color:"#5fd0ff",
+  { cat:"The Planet & Its Powers", sigil:"◉", title:"Materia", color:"#5fd0ff",
     body:"Orbs of crystallized Mako that let the wielder channel magic, summon beings, and bend the elements. They are condensed knowledge and will of the Planet itself — which is why the Cetra's wisdom sleeps within the rarest of them." },
-  { sigil:"☣", title:"Jenova", color:"#c45bff",
+  { cat:"The Planet & Its Powers", sigil:"☣", title:"Jenova", color:"#c45bff",
     body:"The 'Calamity from the Skies' — a parasitic extraterrestrial that fell ages ago and nearly annihilated the Cetra by infection and mimicry. Mistaken by Shinra for an Ancient, its cells are the thread by which Sephiroth's will spreads." },
-  { sigil:"✶", title:"The Cetra", color:"#f0c861",
+  { cat:"The Planet & Its Powers", sigil:"✶", title:"The Cetra", color:"#f0c861",
     body:"The Ancients: a people who could converse with the Planet and the Lifestream, shepherding life and seeking the Promised Land. All but wiped out by Jenova, their last pure descendant is Aerith." },
-  { sigil:"✦", title:"SOLDIER", color:"#5aa6ff",
+  { cat:"The Planet & Its Powers", sigil:"✦", title:"SOLDIER", color:"#5aa6ff",
     body:"Shinra's elite warrior corps, enhanced with Mako and Jenova cells until their eyes glow. The 1st Class — Sephiroth, Genesis, Angeal, Zack — became legends, and the source of the saga's deepest tragedy." },
-  { sigil:"▣", title:"Shinra Inc.", color:"#f0a830",
+  { cat:"The Planet & Its Powers", sigil:"✵", title:"The First SOLDIER", color:"#b7e36b",
+    body:"Ever Crisis's original arc, set ~15 years before FFVII. It follows the prototype 'P0' SOLDIERs — Glenn, Lucia, and Matt — and a young Sephiroth, charting the dawn of Shinra's SOLDIER program and the man Sephiroth was before his fall." },
+  { cat:"The Planet & Its Powers", sigil:"▣", title:"Shinra Inc.", color:"#f0a830",
     body:"The megacorporation that rules the world through its monopoly on Mako energy. Equal parts government, military, and science cult, it treats the Planet's lifeblood as a balance sheet — making it the engine of every catastrophe to follow." },
-  { sigil:"▲", title:"The WEAPONs", color:"#e2576b",
+  { cat:"The Planet & Its Powers", sigil:"▲", title:"The WEAPONs", color:"#e2576b",
     body:"Titanic living guardians created by the Planet as a last line of defense, awakened when its survival is threatened. Emerald, Ruby, Diamond and their kin strike indiscriminately at any sufficient threat — including humanity." },
-  { sigil:"◐", title:"Black & White Materia", color:"#cfd8d4",
-    body:"The two ultimate magics. The Black Materia casts Meteor, summoning a falling star to gouge the Planet — Sephiroth's chosen weapon. The White Materia casts Holy, the Planet's ultimate protection, which only a Cetra can call." },
-  { sigil:"❖", title:"The Promised Land", color:"#f0c861",
+  { cat:"The Planet & Its Powers", sigil:"❖", title:"The Promised Land", color:"#f0c861",
     body:"A fabled land of supreme happiness, said to overflow with Mako. The Cetra sought it as a reward; Shinra coveted it as the ultimate energy source; Sephiroth means to claim it as a god. What it truly is remains a matter of faith." },
-  { sigil:"⚕", title:"Geostigma", color:"#9a6bff",
+  { cat:"The Planet & Its Powers", sigil:"⚕", title:"Geostigma", color:"#9a6bff",
     body:"A lethal plague that follows Meteorfall: the body, exposed to Lifestream tainted by Jenova's cells, wages war on the foreign matter and poisons itself. A wound in the Planet's spirit, ultimately healed by Aerith's blessing (Advent Children)." },
-  { sigil:"⬢", title:"Deepground", color:"#c45bff",
+  { cat:"The Planet & Its Powers", sigil:"⬢", title:"Deepground", color:"#c45bff",
     body:"A secret Shinra army bred in the tunnels beneath Midgar, its elite 'Tsviets' enhanced beyond even SOLDIER. Unleashed in Dirge of Cerberus, they seek to awaken Omega WEAPON and carry the Lifestream off a dying world." },
+  { cat:"The Planet & Its Powers", sigil:"≋", title:"The Whispers", color:"#5fd0ff",
+    body:"Spectral 'Arbiters of Fate' introduced in Remake: ghostly guardians that force events back onto destiny's known path whenever the story strays. Defeating them is a literal break with the original — the device that lets the Remake saga diverge." },
+
+  /* ===== Summons ===== */
+  { cat:"Summons", sigil:"✺", title:"Summon Materia", color:"#e85b6b",
+    body:"Rare red Materia that call a mighty being to the battlefield for a single, devastating intervention. In FFVII they bind gods and monsters into crystal; in Remake and Rebirth they are manifestations of the Planet's memory, earned by proving yourself against them in Chadley's combat simulations." },
+  { cat:"Summons", sigil:"✸", title:"Ifrit", color:"#f0782a",
+    body:"A horned demon wreathed in hellfire, one of the first summons most travellers bind. He answers with Hellfire, scorching every foe on the field." },
+  { cat:"Summons", sigil:"❄", title:"Shiva", color:"#7fd6ff",
+    body:"An elegant spirit of ice who descends to sheathe the battlefield in killing frost — her Diamond Dust freezing enemies where they stand." },
+  { cat:"Summons", sigil:"⚡", title:"Ramuh", color:"#f0c861",
+    body:"A staff-bearing elder sage of storms who passes sentence with a single Judgment Bolt, calling lightning down upon all who oppose his summoner." },
+  { cat:"Summons", sigil:"◆", title:"Titan", color:"#b9894a",
+    body:"A mountainous giant of earth who heaves the very ground skyward — Anger of the Land — crushing everything standing upon it." },
+  { cat:"Summons", sigil:"≋", title:"Leviathan", color:"#45b6e6",
+    body:"A colossal sea serpent revered as a guardian deity in Wutai, who drowns the battlefield beneath a towering tidal wave." },
+  { cat:"Summons", sigil:"⚔", title:"Odin", color:"#b9c3c9",
+    body:"A spectral knight astride the steed Sleipnir. He decapitates lesser foes outright with Zantetsuken, or impales the mighty on the Gungnir lance." },
+  { cat:"Summons", sigil:"✦", title:"Bahamut", color:"#c45bff",
+    body:"The King of Dragons, who razes all before him with Mega Flare. FFVII hides three escalating forms — Bahamut, Neo Bahamut, and the planet-scouring Bahamut ZERO." },
+  { cat:"Summons", sigil:"✚", title:"Alexander", color:"#cfd8d4",
+    body:"A colossal walking citadel of holy light whose Divine Judgment rains down on the unrighteous — one of the rare summons of the Holy element." },
+  { cat:"Summons", sigil:"✷", title:"Phoenix", color:"#ff7a3a",
+    body:"A blazing firebird whose Rebirth Flame scorches the enemy and resurrects the fallen — the Lifestream's promise made manifest: death feeds new life." },
+  { cat:"Summons", sigil:"♛", title:"Knights of the Round", color:"#f0c861",
+    body:"The ultimate summon: thirteen Knights of the Round Table who each strike in turn for an 'Ultimate End.' It is hidden behind one of FFVII's most demanding quests — breeding a Gold Chocobo to reach a lone hidden island." },
+
+  /* ===== Artifacts & Weapons ===== */
+  { cat:"Artifacts & Weapons", sigil:"†", title:"The Buster Sword", color:"#8fb4c0",
+    body:"Angeal Hewley's massive broadsword, kept pristine as the symbol of 'honor and dreams.' It passes from Angeal to Zack to Cloud — the heirloom that binds all three swordsmen — and stands as Zack's grave marker on the cliffs above Midgar." },
+  { cat:"Artifacts & Weapons", sigil:"✛", title:"The Masamune", color:"#c45bff",
+    body:"Sephiroth's impossibly long nodachi, named for the legendary real-world swordsmith Masamune. Its reach lets him strike from beyond any guard — and it is the blade that slays both President Shinra and Aerith." },
+  { cat:"Artifacts & Weapons", sigil:"⚔", title:"The Fusion Swords", color:"#b9c3c9",
+    body:"Cloud's six-piece modular sword in Advent Children: separate blades that lock into one and can be drawn apart mid-fight. An evolution of the Buster Sword, and a monument to every blade — and friend — he carries." },
+  { cat:"Artifacts & Weapons", sigil:"◐", title:"Black & White Materia", color:"#cfd8d4",
+    body:"The two ultimate magics. The Black Materia casts Meteor, summoning a falling star to gouge the Planet — Sephiroth's chosen weapon. The White Materia casts Holy, the Planet's ultimate protection, which only a Cetra can call." },
+  { cat:"Artifacts & Weapons", sigil:"⬟", title:"The Keystone", color:"#d8b48c",
+    body:"The relic that unlocks the Temple of the Ancients. Cait Sith — under Shinra's orders — hands it to the Turks, a betrayal that lets Sephiroth close in on the Black Materia." },
+  { cat:"Artifacts & Weapons", sigil:"◉", title:"Huge Materia", color:"#45e6b0",
+    body:"Four enormous Materia of immense condensed energy, the distilled output of Shinra's reactors. Shinra means to fire them into Meteor; the party races by train, rocket, and submarine to seize them first." },
+  { cat:"Artifacts & Weapons", sigil:"⬡", title:"The Protomateria", color:"#9a6bff",
+    body:"A rare Materia that lets its bearer command the demon Chaos. Stolen from Vincent and central to Dirge of Cerberus, it is the key to controlling — or unleashing — Omega WEAPON." },
 ];
