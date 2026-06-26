@@ -181,10 +181,12 @@ body.light .era-head span { box-shadow: 0 1px 3px rgba(22,37,46,0.08); }
 .event::before { content: ""; position: absolute; top: 22px; right: -7px; width: 12px; height: 12px; border-radius: 50%; background: var(--steel-black); border: 2px solid var(--mako); box-shadow: 0 0 12px rgba(69,230,176,0.7); z-index: 3; }
 .event.right::before { right: auto; left: -7px; }
 
-.card { position: relative; background: linear-gradient(180deg, var(--panel), var(--steel-900)); border: 1px solid var(--line); border-left: 3px solid var(--entry, var(--mako)); border-radius: 6px; padding: 16px 18px 17px; max-width: 460px; width: 100%; cursor: pointer; transition: border-color .2s, box-shadow .2s; }
+.card { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--panel), var(--steel-900)); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px 17px; max-width: 460px; width: 100%; cursor: pointer; transition: border-color .2s, box-shadow .2s; }
+.card::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--entry, var(--mako)); transition: background .2s; }
+.event.right .card::after { left: auto; right: 0; }
 .card .details { cursor: auto; }
-.event.right .card { border-left: 1px solid var(--line); border-right: 3px solid var(--entry, var(--mako)); }
 .card:hover { border-color: rgba(69,230,176,0.4); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+body.light .card:hover { box-shadow: 0 8px 26px rgba(22,37,46,0.12); }
 .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; gap: 10px; }
 .card .tag { display: inline-block; font-family: var(--font-mono); font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--entry, var(--mako)); border: 1px solid color-mix(in srgb, var(--entry, var(--mako)) 45%, transparent); border-radius: 3px; padding: 3px 7px; }
 .card .yr { font-family: var(--font-mono); font-size: .62rem; color: var(--ink-faint); letter-spacing: .08em; }
@@ -212,10 +214,8 @@ body.light .era-head span { box-shadow: 0 1px 3px rgba(22,37,46,0.08); }
 .spoiler::after { content: "█ CLASSIFIED — SHINRA ARCHIVE █"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; filter: blur(0); font-family: var(--font-mono); font-size: .56rem; letter-spacing: .18em; color: var(--amber); text-shadow: 0 0 8px rgba(240,168,48,0.5); pointer-events: none; text-align: center; }
 body.revealed .spoiler { filter: none; user-select: auto; pointer-events: auto; }
 body.revealed .spoiler::after { content: none; }
-.card.is-spoiler { border-left-color: var(--amber); }
-.event.right .card.is-spoiler { border-right-color: var(--amber); }
-body.revealed .card.is-spoiler { border-left-color: var(--entry); }
-body.revealed .event.right .card.is-spoiler { border-right-color: var(--entry); }
+.card.is-spoiler::after { background: var(--amber); }
+body.revealed .card.is-spoiler::after { background: var(--entry); }
 
 /* ---------- RELATIONSHIP WEB ---------- */
 .rel-layout { display: grid; grid-template-columns: 1fr 358px; min-height: calc(100vh - 64px); border-top: 1px solid var(--line-soft); }
@@ -363,8 +363,7 @@ footer a { color: var(--mako-dim); }
   .spine { left: 20px; }
   .event, .event.right { width: 100%; margin-left: 0; padding: 0 0 26px 46px; justify-content: flex-start; }
   .event::before, .event.right::before { left: 14px; right: auto; }
-  .event.right .card { border-right: 1px solid var(--line); border-left: 3px solid var(--entry, var(--mako)); }
-  .event.right .card.is-spoiler { border-right: 1px solid var(--line); border-left-color: var(--amber); }
+  .event.right .card::after { left: 0; right: auto; }
 
   .rel-layout { grid-template-columns: 1fr; }
   .graph-pane { min-height: 72vh; }
