@@ -201,6 +201,28 @@ body.revealed .event.right .card.is-spoiler { border-right-color: var(--entry); 
 .node-g:focus-visible .node-ring { stroke: var(--mako); }
 .dim { opacity: .12; }
 
+/* edge hover + labels */
+.edge-hit { cursor: help; }
+.edge.hover { stroke-opacity: 1 !important; stroke-width: 3.2 !important; }
+.edge-label { pointer-events: none; }
+.edge-label text {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .02em;
+  paint-order: stroke; stroke: #060807; stroke-width: 3.4px; stroke-linejoin: round;
+}
+.edge-tip {
+  position: absolute; z-index: 7; pointer-events: none; left: 0; top: 0;
+  background: rgba(8,11,10,0.95); border: 1px solid var(--line); border-radius: 6px;
+  padding: 7px 11px; max-width: 230px; backdrop-filter: blur(6px);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.55);
+  opacity: 0; transform: translateY(4px); transition: opacity .12s ease;
+  font-family: var(--font-mono); font-size: .64rem; line-height: 1.5; color: var(--ink);
+}
+.edge-tip.show { opacity: 1; transform: none; }
+.edge-tip .et-pair { display: block; }
+.edge-tip .et-pair b { font-family: var(--font-body); font-weight: 600; }
+.edge-tip .et-ic { font-size: .82rem; }
+.edge-tip .et-type { display: block; margin-top: 3px; color: var(--ink-faint); letter-spacing: .1em; text-transform: uppercase; font-size: .54rem; }
+
 /* dossier */
 .dossier { border-left: 1px solid var(--line); background: linear-gradient(180deg, var(--panel), var(--steel-900)); padding: 24px 22px 40px; overflow-y: auto; max-height: calc(100vh - 64px); }
 .dossier .empty { color: var(--ink-faint); font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; line-height: 1.9; text-align: center; margin-top: 60px; }

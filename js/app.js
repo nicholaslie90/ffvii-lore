@@ -128,18 +128,50 @@ const edges = RELATIONS.map(raw => ({
   spoiler: raw.some((v, idx) => idx >= 3 && v === true),
 }));
 
-const gEdges = document.createElementNS(SVG_NS, "g");
+const gEdges = document.createElementNS(SVG_NS, "g");   // visible lines
+const gHits = document.createElementNS(SVG_NS, "g");    // wide transparent hover targets
+const gLabels = document.createElementNS(SVG_NS, "g");  // on-edge labels for the selected node
 const gNodes = document.createElementNS(SVG_NS, "g");
 const defs = document.createElementNS(SVG_NS, "defs");
 defs.innerHTML = `<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#45e6b0"/></marker>`;
 svg.appendChild(defs);
 svg.appendChild(gEdges);
+svg.appendChild(gHits);
+svg.appendChild(gLabels);
 svg.appendChild(gNodes);
 
-// edges as elements
-edges.forEach(e => {
-  const ln = document.createElementNS(SVG_NS, "line");
+// edge tooltip
+const graphPane = document.querySelector(".graph-pane");
+const edgeTip = document.createElement("div");
+edgeTip.className = "edge-tip";
+edgeTip.setAttribute("aria-hidden", "true");
+graphPane.appendChild(edgeTip);
+const cap = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+function showTip(e, ev) {
+  if (e.hit.style.display === "none") return;
   const t = RTYPE[e.type];
+  const A = charById[e.a].name, B = charById[e.b].name;
+  const note = e.label && e.label !== t.label ? `${cap(e.label)} · ${t.label}` : cap(t.label);
+  edgeTip.innerHTML = `<span class="et-pair"><b>${A}</b> <span class="et-ic" style="color:${t.stroke}">${t.icon}</span> <b>${B}</b></span><span class="et-type">${note}</span>`;
+  edgeTip.classList.add("show");
+  moveTip(ev);
+  e.el.classList.add("hover");
+}
+function moveTip(ev) {
+  const r = graphPane.getBoundingClientRect();
+  const tw = edgeTip.offsetWidth, th = edgeTip.offsetHeight;
+  let x = ev.clientX - r.left + 14, y = ev.clientY - r.top + 14;
+  if (x + tw > r.width - 6) x = ev.clientX - r.left - tw - 14;
+  if (y + th > r.height - 6) y = ev.clientY - r.top - th - 14;
+  edgeTip.style.left = Math.max(6, x) + "px";
+  edgeTip.style.top = Math.max(6, y) + "px";
+}
+function hideTip(e) { edgeTip.classList.remove("show"); if (e) e.el.classList.remove("hover"); }
+
+// edges as elements (+ transparent hit line for easy hovering)
+edges.forEach(e => {
+  const t = RTYPE[e.type];
+  const ln = document.createElementNS(SVG_NS, "line");
   ln.setAttribute("class", "edge");
   ln.setAttribute("stroke", t.stroke);
   ln.setAttribute("stroke-width", "1.6");
@@ -148,6 +180,17 @@ edges.forEach(e => {
   if (e.type === "mentor") ln.setAttribute("marker-end", "url(#arrow)");
   e.el = ln;
   gEdges.appendChild(ln);
+
+  const hit = document.createElementNS(SVG_NS, "line");
+  hit.setAttribute("class", "edge-hit");
+  hit.setAttribute("stroke", "transparent");
+  hit.setAttribute("stroke-width", "16");
+  hit.setAttribute("pointer-events", "stroke");
+  e.hit = hit;
+  gHits.appendChild(hit);
+  hit.addEventListener("mouseenter", (ev) => showTip(e, ev));
+  hit.addEventListener("mousemove", moveTip);
+  hit.addEventListener("mouseleave", () => hideTip(e));
 });
 
 // nodes as markup (portraits)
@@ -205,8 +248,40 @@ function draw() {
     const a = nodeById[e.a], b = nodeById[e.b];
     e.el.setAttribute("x1", a.x); e.el.setAttribute("y1", a.y);
     e.el.setAttribute("x2", b.x); e.el.setAttribute("y2", b.y);
+    e.hit.setAttribute("x1", a.x); e.hit.setAttribute("y1", a.y);
+    e.hit.setAttribute("x2", b.x); e.hit.setAttribute("y2", b.y);
   });
   nodes.forEach(n => n.g.setAttribute("transform", `translate(${n.x},${n.y})`));
+  updateEdgeLabels();
+}
+
+/* on-edge relationship labels for the selected node */
+let activeLabels = [];
+function buildEdgeLabels(id) {
+  gLabels.innerHTML = "";
+  activeLabels = [];
+  if (!id) return;
+  neighborsOf(id).forEach(e => {
+    const t = RTYPE[e.type];
+    const text = (e.label || t.label);
+    const g = document.createElementNS(SVG_NS, "g");
+    g.setAttribute("class", "edge-label");
+    const txt = document.createElementNS(SVG_NS, "text");
+    txt.setAttribute("text-anchor", "middle");
+    txt.setAttribute("dominant-baseline", "central");
+    txt.setAttribute("fill", t.stroke);
+    txt.textContent = `${t.icon} ${text}`;
+    g.appendChild(txt);
+    gLabels.appendChild(g);
+    activeLabels.push({ e, g });
+  });
+  updateEdgeLabels();
+}
+function updateEdgeLabels() {
+  for (const { e, g } of activeLabels) {
+    const a = nodeById[e.a], b = nodeById[e.b];
+    g.setAttribute("transform", `translate(${(a.x + b.x) / 2},${(a.y + b.y) / 2})`);
+  }
 }
 function run() {
   cancelAnimationFrame(rafId);
@@ -260,10 +335,12 @@ function applySelectionStyles() {
     edges.forEach(e => {
       const hidden = e.spoiler && !rev;
       e.el.style.display = hidden ? "none" : "";
+      e.hit.style.display = hidden ? "none" : "";
       e.el.classList.remove("dim");
       e.el.setAttribute("stroke-width", "1.6");
       e.el.setAttribute("stroke-opacity", hidden ? "0" : "0.5");
     });
+    buildEdgeLabels(null);
     return;
   }
   const connected = new Set([id]);
@@ -279,10 +356,12 @@ function applySelectionStyles() {
     const hidden = e.spoiler && !rev;
     const on = !hidden && (e.a === id || e.b === id);
     e.el.style.display = hidden ? "none" : "";
+    e.hit.style.display = hidden ? "none" : "";
     e.el.classList.toggle("dim", !on);
     e.el.setAttribute("stroke-width", on ? 2.8 : 1.4);
     e.el.setAttribute("stroke-opacity", on ? 0.95 : (hidden ? 0 : 0.3));
   });
+  buildEdgeLabels(id);
 }
 function selectNode(id) { selectedId = id; applySelectionStyles(); renderDossier(id); closeSearch(); }
 function clearSelection() { selectedId = null; applySelectionStyles(); }
