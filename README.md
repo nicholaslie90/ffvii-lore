@@ -42,6 +42,9 @@ If you are a rights holder and have any concerns, please open an issue.
 - **Spoiler toggle** — a "Classified / Declassified" switch (default off) seals the
   major twists behind Shinra-file redaction; declassifying also reveals hidden
   relationship ties, so the web visibly grows as you unlock it.
+- **Light / dark theme** — a toggle in the nav (remembered across visits). The
+  default dark "Mako" theme, or a light theme inspired by the original FFVII disc
+  art: a cool silver-white field with steel-blue ink.
 - **Ambient audio** — an optional, original procedural soundscape. Browsers block
   autoplay-with-sound, so it begins on your first interaction and can be muted at
   any time from the nav.

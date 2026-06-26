@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <script>try{if(localStorage.getItem('ffvii-theme')==='light')document.body.classList.add('light');}catch(e){}</script>
   <div class="ambient" aria-hidden="true"></div>
 
   <nav class="nav">
@@ -21,6 +22,9 @@
       <button class="tab" id="tab-relations" role="tab" aria-selected="false" aria-controls="view-relations">Characters</button>
       <button class="tab" id="tab-compendium" role="tab" aria-selected="false" aria-controls="view-compendium">Compendium</button>
     </div>
+    <button class="theme-btn" id="theme-btn" aria-pressed="false" title="Toggle light / dark theme">
+      <span class="theme-ic" aria-hidden="true">☀</span><span class="theme-lbl">Light</span>
+    </button>
     <button class="audio-btn" id="audio-btn" aria-pressed="false" title="Toggle ambient music">
       <span class="audio-ic" aria-hidden="true">♪</span><span class="audio-lbl">Ambient</span>
     </button>

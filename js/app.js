@@ -214,8 +214,7 @@ function hideTip(e) { edgeTip.classList.remove("show"); if (e) e.el.classList.re
 edges.forEach(e => {
   const t = RTYPE[e.type];
   const ln = document.createElementNS(SVG_NS, "line");
-  ln.setAttribute("class", "edge");
-  ln.setAttribute("stroke", t.stroke);
+  ln.setAttribute("class", "edge edge-" + e.type);
   ln.setAttribute("stroke-width", "1.6");
   ln.setAttribute("stroke-opacity", "0.5");
   if (t.dash) ln.setAttribute("stroke-dasharray", t.dash);
@@ -592,4 +591,25 @@ let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTime
   }
   document.addEventListener("pointerdown", firstGesture, { once: false });
   document.addEventListener("keydown", firstGesture, { once: false });
+})();
+
+/* ============================================================
+   THEME TOGGLE (dark / light)
+   ============================================================ */
+(function themeToggle() {
+  const btn = document.getElementById("theme-btn");
+  if (!btn) return;
+  const ic = btn.querySelector(".theme-ic"), lbl = btn.querySelector(".theme-lbl");
+  function sync() {
+    const light = document.body.classList.contains("light");
+    btn.setAttribute("aria-pressed", light ? "true" : "false");
+    ic.textContent = light ? "☾" : "☀";
+    lbl.textContent = light ? "Dark" : "Light";
+  }
+  btn.addEventListener("click", () => {
+    const light = document.body.classList.toggle("light");
+    try { localStorage.setItem("ffvii-theme", light ? "light" : "dark"); } catch (e) {}
+    sync();
+  });
+  sync();
 })();
