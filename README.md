@@ -19,8 +19,6 @@ No copyrighted assets are redistributed here:
 
 - All **character portraits** and **event illustrations** are original vector
   graphics drawn in code — no official art or screenshots are used.
-- The **background music** is original ambient audio synthesized live in the
-  browser (Web Audio API) — **no Square Enix music is included or distributed.**
 
 If you are a rights holder and have any concerns, please open an issue.
 
@@ -45,9 +43,6 @@ If you are a rights holder and have any concerns, please open an issue.
 - **Light / dark theme** — a toggle in the nav (remembered across visits). The
   default dark "Mako" theme, or a light theme inspired by the original FFVII disc
   art: a cool silver-white field with steel-blue ink.
-- **Ambient audio** — an optional, original procedural soundscape. Browsers block
-  autoplay-with-sound, so it begins on your first interaction and can be muted at
-  any time from the nav.
 
 ## Run it
 
@@ -68,7 +63,6 @@ css/styles.css       all styling
 js/data.js           lore data: characters, relationships, events, compendium
 js/portraits.js      parametric vector character portraits
 js/scenes.js         vector illustrations for timeline incidents
-js/audio.js          procedural ambient (Web Audio API)
 js/app.js            timeline, graph, search, dossier, view + spoiler logic
 docs/                design spec
 ```
